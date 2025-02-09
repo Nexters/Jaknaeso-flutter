@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.nexters.jaknaeso_flutter"
+    namespace = "com.jaknaeso"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "org.nexters.jaknaeso_flutter"
+        applicationId = "com.jaknaeso"
         minSdkVersion 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

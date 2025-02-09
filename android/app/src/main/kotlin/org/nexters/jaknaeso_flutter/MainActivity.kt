@@ -1,4 +1,4 @@
-package org.nexters.jaknaeso_flutter
+package com.jaknaeso
 
 import io.flutter.embedding.android.FlutterActivity
 
