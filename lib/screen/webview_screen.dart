@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:jaknaeso_flutter/config/env_config.dart';
@@ -19,15 +21,20 @@ class _WebViewScreenState extends State<WebViewScreen> {
     final uri = Uri.parse(EnvConfig.jaknaesoWebUri);
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..enableZoom(false)
       ..loadRequest(uri);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: WebViewWidget(
-          controller: controller,
+    return Container(
+      child: SafeArea(
+        maintainBottomViewPadding: true,
+        child: Scaffold(
+          resizeToAvoidBottomInset: !Platform.isIOS,
+          body: WebViewWidget(
+            controller: controller,
+          ),
         ),
       ),
     );
