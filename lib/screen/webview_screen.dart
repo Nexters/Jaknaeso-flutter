@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:jaknaeso_flutter/config/env_config.dart';
 
 class WebViewScreen extends StatefulWidget {
@@ -19,7 +20,12 @@ class _WebViewScreenState extends State<WebViewScreen> {
     super.initState();
 
     final uri = Uri.parse(EnvConfig.jaknaesoWebUri);
-    controller = WebViewController()
+    controller = WebViewController();
+    if (controller.platform is WebKitWebViewController) {
+      (controller.platform as WebKitWebViewController)
+          .setAllowsBackForwardNavigationGestures(true);
+    }
+    controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..enableZoom(false)
       ..loadRequest(uri);
