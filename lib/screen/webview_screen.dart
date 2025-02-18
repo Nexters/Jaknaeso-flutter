@@ -34,6 +34,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       child: SafeArea(
         maintainBottomViewPadding: true,
         child: Scaffold(
